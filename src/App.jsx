@@ -16,25 +16,15 @@ export default function App() {
   return (
     <div className="App">
       <Container>
-        {/* <LoginView />
-        <HomeView /> */}
-        <Routes>
-          <Route path="/" exact element={<HomeView />} />
-          <Route path="/register" element={<RegisterView />} />
-          <Route path="/login" element={<LoginView />} />
-          <Route path="/contacts" element={<ContactsView />} />
-        </Routes>
-      </Container>
-      {/* <Container>
         <AppBar />
-        <div>Helper</div>
+
         <Routes>
           <Route exact path="/" element={<HomeView />} />
           <Route path="/register" element={<RegisterView />} />
           <Route path="/login" element={<LoginView />} />
-          <Route path="/contacts" element={<ContactsView />} />
+          {/* <Route path="/contacts" element={<ContactsView />} /> */}
         </Routes>
-      </Container> */}
+      </Container>
     </div>
 
     // <div className="App">

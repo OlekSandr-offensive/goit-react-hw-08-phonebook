@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import { setupListeners } from '@reduxjs/toolkit/query';
+import { setupListeners } from '@reduxjs/toolkit/query';
 import {
   persistStore,
   persistReducer,
@@ -11,20 +11,20 @@ import {
   REGISTER,
 } from 'redux-persist';
 import logger from 'redux-logger';
-// import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage';
 import filterSlice from './contacts/filters-reducer';
 import { contactsApi } from './contacts/contacts-slice';
-// import authSlice from './auth/auth-slice';
+import authSlice from './auth/auth-slice';
 
-// const authPersistConfig = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token'],
-// };
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
 
 export const store = configureStore({
   reducer: {
-    // auth: persistReducer(authPersistConfig, authSlice),
+    auth: persistReducer(authPersistConfig, authSlice.reducer),
     [contactsApi.reducerPath]: contactsApi.reducer,
     filter: filterSlice.reducer,
   },
@@ -42,4 +42,4 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-// setupListeners(store.dispatch);
+setupListeners(store.dispatch);
