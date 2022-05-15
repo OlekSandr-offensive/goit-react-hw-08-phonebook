@@ -2,7 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../redux/auth/auth-operation';
-import '../styles/Register.scss';
+// import '../styles/Register.scss';
+import '../components/contactForm/ContactForm.scss';
 
 const LoginView = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const LoginView = () => {
     <div>
       <h1>Сторінка логіна</h1>
 
-      <div className="form-register">
+      <div className="ContactForm">
         <form onSubmit={handleSubmit} className="form-input" autoComplete="off">
           <label>
             Пошта

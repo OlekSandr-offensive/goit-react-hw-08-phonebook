@@ -9,7 +9,7 @@ const styles = {
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 48,
+    // fontSize: 48,
     textAlign: 'center',
   },
 };

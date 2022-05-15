@@ -1,6 +1,17 @@
 .menu-container {
   display: flex;
   align-items: center;
+  button {
+    margin-left: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: white;
+    border-color: #ececec;
+    width: 60px;
+    &:hover {
+      background: #4e8cf0;
+    }
+  }
 }
 
 .avatar-img {

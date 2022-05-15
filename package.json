@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://OlekSandr-offensive.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
+    "@pnotify/core": "^5.2.0",
+    "@pnotify/mobile": "^5.2.0",
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
