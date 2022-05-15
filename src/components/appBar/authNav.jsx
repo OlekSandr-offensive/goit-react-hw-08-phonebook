@@ -3,10 +3,10 @@ import './AuthNav.scss';
 
 const AuthNav = () => (
   <div className="auth-link">
-    <NavLink to="/register" exact className="link">
+    <NavLink to="/register" className="link">
       Регістрація
     </NavLink>
-    <NavLink to="/login" exact className="link">
+    <NavLink to="/login" className="link">
       Логін
     </NavLink>
   </div>

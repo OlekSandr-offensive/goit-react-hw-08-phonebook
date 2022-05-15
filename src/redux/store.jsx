@@ -12,8 +12,8 @@ import {
 } from 'redux-persist';
 import logger from 'redux-logger';
 import storage from 'redux-persist/lib/storage';
-// import filterSlice from './contacts/filters-reducer';
-// import { contactsApi } from './contacts/contacts-slice';
+import filterSlice from './contacts/filters-reducer';
+import { contactsApi } from './contacts/contacts-slice';
 import authSlice from './auth/auth-slice';
 
 const authPersistConfig = {
@@ -25,8 +25,8 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authSlice),
-    // [contactsApi.reducerPath]: contactsApi.reducer,
-    // filter: filterSlice.reducer,
+    [contactsApi.reducerPath]: contactsApi.reducer,
+    filter: filterSlice.reducer,
   },
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware => [
@@ -36,7 +36,7 @@ export const store = configureStore({
       },
     }),
     logger,
-    // contactsApi.middleware,
+    contactsApi.middleware,
   ],
 });
 
