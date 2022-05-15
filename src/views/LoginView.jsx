@@ -1,6 +1,6 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { logIn } from '../redux/auth/auth-operation';
 import '../styles/Register.scss';
 
@@ -32,7 +32,7 @@ const LoginView = () => {
       <h1>Сторінка логіна</h1>
 
       <div className="form-register">
-        <form onSubmit={handleSubmit} className="form-input">
+        <form onSubmit={handleSubmit} className="form-input" autoComplete="off">
           <label>
             Пошта
             <input
@@ -51,10 +51,8 @@ const LoginView = () => {
               onChange={handleChange}
             />
           </label>
+          <button type="submit">Вхід</button>
         </form>
-        <button type="button" onClick={handleSubmit}>
-          Вхід
-        </button>
       </div>
     </div>
   );
