@@ -1,9 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { logIn } from '../redux/auth/auth-operation';
-// import '../styles/Register.scss';
-import '../components/contactForm/ContactForm.scss';
+import { logIn, fetchCurrentUser } from '../redux/auth/auth-operation';
+import '../components/contactForm/ContactForm.css';
 
 const LoginView = () => {
   const dispatch = useDispatch();
@@ -24,6 +23,7 @@ const LoginView = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(logIn({ email, password }));
+    dispatch(fetchCurrentUser());
     setEmail('');
     setPassword('');
   };

@@ -1,4 +1,4 @@
-import './ContactList.scss';
+import './ContactList.css';
 import { useSelector } from 'react-redux';
 import {
   useFetchContactsQuery,

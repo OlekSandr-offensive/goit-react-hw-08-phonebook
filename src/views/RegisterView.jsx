@@ -2,8 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../redux/auth/auth-operation';
-// import '../styles/Register.scss';
-import '../components/contactForm/ContactForm.scss';
+import '../components/contactForm/ContactForm.css';
 
 const LoginView = () => {
   const dispatch = useDispatch();

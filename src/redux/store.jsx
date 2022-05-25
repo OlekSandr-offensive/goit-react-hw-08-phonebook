@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import { setupListeners } from '@reduxjs/toolkit/query';
+import { setupListeners } from '@reduxjs/toolkit/query';
 import {
   persistStore,
   persistReducer,
@@ -10,7 +10,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import logger from 'redux-logger';
 import storage from 'redux-persist/lib/storage';
 import filterSlice from './contacts/filters-reducer';
 import { contactsApi } from './contacts/contacts-slice';
@@ -35,11 +34,10 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-    logger,
     contactsApi.middleware,
   ],
 });
 
 export const persistor = persistStore(store);
 
-// setupListeners(store.dispatch);
+setupListeners(store.dispatch);

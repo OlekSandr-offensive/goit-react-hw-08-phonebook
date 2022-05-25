@@ -5,7 +5,7 @@ import {
 } from 'redux/contacts/contacts-slice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './ContactForm.scss';
+import './ContactForm.css';
 
 export default function ContactForm() {
   const { data: contacts } = useFetchContactsQuery();
