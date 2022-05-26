@@ -1,17 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
-  useFetchContactsQuery,
   useAddContactMutation,
+  fetchAllContacts,
 } from 'redux/contacts/contacts-slice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './ContactForm.css';
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function ContactForm() {
-  const { data: contacts } = useFetchContactsQuery();
+  const dispatch = useDispatch();
   const [AddContact] = useAddContactMutation();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const {
+    contacts: { contacts },
+  } = useSelector(state => state);
+
+  useEffect(() => {
+    dispatch(fetchAllContacts());
+  }, [dispatch]);
 
   const handleInputChanged = event => {
     const { name, value } = event.currentTarget;
@@ -27,7 +35,7 @@ export default function ContactForm() {
     }
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
     const findContact = contacts.find(
@@ -38,7 +46,8 @@ export default function ContactForm() {
       toast.error(`${name} is already in contacts.`);
       reset();
     } else {
-      AddContact({ name, number });
+      await AddContact({ name, number });
+      dispatch(fetchAllContacts());
       reset();
     }
   };

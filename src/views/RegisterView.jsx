@@ -42,8 +42,10 @@ const LoginView = () => {
             <input
               type="text"
               name="name"
+              id="name"
               value={name}
               onChange={handleChange}
+              required
             />
           </label>
           <label>
@@ -51,17 +53,24 @@ const LoginView = () => {
             <input
               type="email"
               name="email"
+              id="email"
               value={email}
               onChange={handleChange}
+              pattern="[^ @]*@[^ @]*"
+              required
             />
           </label>
           <label>
             Пароль
             <input
               type="password"
+              id="password"
               name="password"
               value={password}
               onChange={handleChange}
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              required
             />
           </label>
           <button type="submit">Зареєструватися</button>

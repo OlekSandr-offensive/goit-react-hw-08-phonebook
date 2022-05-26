@@ -20,8 +20,8 @@ const LoginView = () => {
     }
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
     dispatch(logIn({ email, password }));
     dispatch(fetchCurrentUser());
     setEmail('');
@@ -38,19 +38,34 @@ const LoginView = () => {
             Пошта
             <input
               type="email"
+              id="email"
               name="email"
               value={email}
               onChange={handleChange}
+              pattern="[^ @]*@[^ @]*"
+              required
             />
           </label>
           <label>
             Пароль
-            <input
+            {/* <input
               type="password"
               name="password"
               value={password}
               onChange={handleChange}
-            />
+              minlength="8"
+              required
+            /> */}
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              required
+            ></input>
           </label>
           <button type="submit">Вхід</button>
         </form>
