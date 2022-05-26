@@ -25,7 +25,7 @@ const LoginView = () => {
   const handleSubmit = event => {
     event.preventDefault();
     if (email.length <= 0 || password.length <= 0) {
-      toast.error('fill in the fields');
+      toast.error('Заповніть поля');
       return;
     }
     dispatch(logIn({ email, password }));
