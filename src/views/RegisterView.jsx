@@ -2,8 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../redux/auth/auth-operation';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { alert, defaultModules } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import * as PNotifyMobile from '@pnotify/mobile';
+import '@pnotify/mobile/dist/PNotifyMobile.css';
 import '../components/contactForm/ContactForm.css';
 
 const LoginView = () => {
@@ -28,7 +30,10 @@ const LoginView = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (name.length <= 0 || email.length <= 0 || password.length <= 0) {
-      toast.error('Заповніть поля');
+      defaultModules.set(PNotifyMobile, {});
+      alert({
+        text: `Заповніть поля`,
+      });
       return;
     }
     dispatch(register({ name, email, password }));
@@ -51,7 +56,7 @@ const LoginView = () => {
               id="name"
               value={name}
               onChange={handleChange}
-              required
+              // required
             />
           </label>
           <label>
@@ -63,7 +68,7 @@ const LoginView = () => {
               value={email}
               onChange={handleChange}
               pattern="[^ @]*@[^ @]*"
-              required
+              // required
             />
           </label>
           <label>
@@ -76,7 +81,7 @@ const LoginView = () => {
               onChange={handleChange}
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-              required
+              // required
             />
           </label>
           <button type="submit">Зареєструватися</button>
