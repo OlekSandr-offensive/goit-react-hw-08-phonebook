@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn, fetchCurrentUser } from '../redux/auth/auth-operation';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../components/contactForm/ContactForm.css';
 
 const LoginView = () => {
@@ -22,6 +24,10 @@ const LoginView = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    if (email.length <= 0 || password.length <= 0) {
+      toast.error('fill in the fields');
+      return;
+    }
     dispatch(logIn({ email, password }));
     dispatch(fetchCurrentUser());
     setEmail('');
