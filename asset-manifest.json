@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-08-phonebook/static/css/main.380e4928.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.4bfeb26e.js",
+    "main.css": "/goit-react-hw-08-phonebook/static/css/main.32bd23d2.css",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.e954b4bc.js",
     "HomeViewLazy.js": "/goit-react-hw-08-phonebook/static/js/HomeViewLazy.a1873a2e.chunk.js",
     "RegisterViewLazy.css": "/goit-react-hw-08-phonebook/static/css/RegisterViewLazy.3392f302.chunk.css",
-    "RegisterViewLazy.js": "/goit-react-hw-08-phonebook/static/js/RegisterViewLazy.ba0794d5.chunk.js",
+    "RegisterViewLazy.js": "/goit-react-hw-08-phonebook/static/js/RegisterViewLazy.b3a6c8a4.chunk.js",
     "LoginViewLazy.css": "/goit-react-hw-08-phonebook/static/css/LoginViewLazy.3392f302.chunk.css",
-    "LoginViewLazy.js": "/goit-react-hw-08-phonebook/static/js/LoginViewLazy.694363c4.chunk.js",
+    "LoginViewLazy.js": "/goit-react-hw-08-phonebook/static/js/LoginViewLazy.a9f4f6fb.chunk.js",
     "ContactsViewLazy.css": "/goit-react-hw-08-phonebook/static/css/ContactsViewLazy.c7474eaa.chunk.css",
-    "ContactsViewLazy.js": "/goit-react-hw-08-phonebook/static/js/ContactsViewLazy.44bedaa3.chunk.js",
+    "ContactsViewLazy.js": "/goit-react-hw-08-phonebook/static/js/ContactsViewLazy.e600a2a8.chunk.js",
     "static/media/default-avatar.png": "/goit-react-hw-08-phonebook/static/media/default-avatar.10691648d79aa2f92514.png",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
-    "main.380e4928.css.map": "/goit-react-hw-08-phonebook/static/css/main.380e4928.css.map",
-    "main.4bfeb26e.js.map": "/goit-react-hw-08-phonebook/static/js/main.4bfeb26e.js.map",
+    "main.32bd23d2.css.map": "/goit-react-hw-08-phonebook/static/css/main.32bd23d2.css.map",
+    "main.e954b4bc.js.map": "/goit-react-hw-08-phonebook/static/js/main.e954b4bc.js.map",
     "HomeViewLazy.a1873a2e.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/HomeViewLazy.a1873a2e.chunk.js.map",
     "RegisterViewLazy.3392f302.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/RegisterViewLazy.3392f302.chunk.css.map",
-    "RegisterViewLazy.ba0794d5.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/RegisterViewLazy.ba0794d5.chunk.js.map",
+    "RegisterViewLazy.b3a6c8a4.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/RegisterViewLazy.b3a6c8a4.chunk.js.map",
     "LoginViewLazy.3392f302.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/LoginViewLazy.3392f302.chunk.css.map",
-    "LoginViewLazy.694363c4.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/LoginViewLazy.694363c4.chunk.js.map",
+    "LoginViewLazy.a9f4f6fb.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/LoginViewLazy.a9f4f6fb.chunk.js.map",
     "ContactsViewLazy.c7474eaa.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/ContactsViewLazy.c7474eaa.chunk.css.map",
-    "ContactsViewLazy.44bedaa3.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/ContactsViewLazy.44bedaa3.chunk.js.map"
+    "ContactsViewLazy.e600a2a8.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/ContactsViewLazy.e600a2a8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.380e4928.css",
-    "static/js/main.4bfeb26e.js"
+    "static/css/main.32bd23d2.css",
+    "static/js/main.e954b4bc.js"
   ]
 }
