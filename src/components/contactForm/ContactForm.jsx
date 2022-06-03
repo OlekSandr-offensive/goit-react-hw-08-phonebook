@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
+  useFetchContactsQuery,
   useAddContactMutation,
   fetchAllContacts,
 } from 'redux/contacts/contacts-slice';
@@ -9,17 +10,18 @@ import './ContactForm.css';
 import { useSelector, useDispatch } from 'react-redux';
 
 export default function ContactForm() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const { data: contacts } = useFetchContactsQuery();
   const [AddContact] = useAddContactMutation();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const {
-    contacts: { contacts },
-  } = useSelector(state => state);
+  // const {
+  //   contacts: { contacts },
+  // } = useSelector(state => state);
 
-  useEffect(() => {
-    dispatch(fetchAllContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchAllContacts());
+  // }, [dispatch]);
 
   const handleInputChanged = event => {
     const { name, value } = event.currentTarget;
@@ -47,7 +49,7 @@ export default function ContactForm() {
       reset();
     } else {
       await AddContact({ name, number });
-      dispatch(fetchAllContacts());
+      // dispatch(fetchAllContacts());
       reset();
     }
   };

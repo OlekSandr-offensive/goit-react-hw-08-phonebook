@@ -1,13 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { createSlice } from '@reduxjs/toolkit';
-import { logOut } from '../auth/auth-operation';
-import axios from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+// import { createSlice } from '@reduxjs/toolkit';
+// import { logOut } from '../auth/auth-operation';
+// import axios from 'axios';
+// import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const contactsApi = createApi({
   reducerPath: 'contactsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://connections-api.herokuapp.com',
+    baseUrl: 'https://connections-api.herokuapp.com/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 
@@ -19,6 +19,10 @@ export const contactsApi = createApi({
   }),
   tagTypes: ['contact'],
   endpoints: builder => ({
+    fetchContacts: builder.query({
+      query: () => `/contacts/`,
+      providesTags: ['contact'],
+    }),
     addContact: builder.mutation({
       query: ({ name, number }) => ({
         url: `/contacts/`,
@@ -40,32 +44,36 @@ export const contactsApi = createApi({
   }),
 });
 
-export const fetchAllContacts = createAsyncThunk('contacts', async () => {
-  try {
-    const { data } = await axios.get('/contacts');
-    return data;
-  } catch (error) {
-    alert({
-      text: `Не вдалося отримати контакти`,
-    });
-  }
-});
+// export const fetchAllContacts = createAsyncThunk('contacts', async () => {
+//   try {
+//     const { data } = await axios.get('/contacts');
+//     return data;
+//   } catch (error) {
+//     alert({
+//       text: `Не вдалося отримати контакти`,
+//     });
+//   }
+// });
 
-const initialState = {
-  contacts: [],
-};
+// const initialState = {
+//   contacts: [],
+// };
 
-export const contactSlice = createSlice({
-  name: 'contacts',
-  initialState,
-  extraReducers: {
-    [logOut.fulfilled](state) {
-      state.contacts = [];
-    },
-    [fetchAllContacts.fulfilled.type](state, { payload }) {
-      state.contacts = payload;
-    },
-  },
-});
+// export const contactSlice = createSlice({
+//   name: 'contacts',
+//   initialState,
+//   extraReducers: {
+//     [logOut.fulfilled](state) {
+//       state.contacts = [];
+//     },
+//     [fetchAllContacts.fulfilled.type](state, { payload }) {
+//       state.contacts = payload;
+//     },
+//   },
+// });
 
-export const { useAddContactMutation, useDeleteContactsMutation } = contactsApi;
+export const {
+  useAddContactMutation,
+  useDeleteContactsMutation,
+  useFetchContactsQuery,
+} = contactsApi;

@@ -1,7 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { logIn, fetchCurrentUser } from '../redux/auth/auth-operation';
+// import { useDispatch } from 'react-redux';
+import {
+  logIn,
+  fetchCurrentUser,
+  useLogInMutation,
+} from '../redux/auth/auth-operation';
 import { alert, defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import * as PNotifyMobile from '@pnotify/mobile';
@@ -9,7 +13,8 @@ import '@pnotify/mobile/dist/PNotifyMobile.css';
 import '../components/contactForm/ContactForm.css';
 
 const LoginView = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const [logIn] = useLogInMutation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -33,8 +38,16 @@ const LoginView = () => {
       });
       return;
     }
-    dispatch(logIn({ email, password }));
-    dispatch(fetchCurrentUser());
+    logIn({ email, password })
+      .then()
+      .catch(() => {
+        defaultModules.set(PNotifyMobile, {});
+        alert({
+          text: `Не вдалося авторизуватися`,
+        });
+      });
+    // dispatch(logIn({ email, password }));
+    // dispatch(fetchCurrentUser());
     setEmail('');
     setPassword('');
   };
