@@ -29,7 +29,7 @@ const LoginView = () => {
     }
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     if (email.length <= 0 || password.length <= 0) {
       defaultModules.set(PNotifyMobile, {});
@@ -38,18 +38,25 @@ const LoginView = () => {
       });
       return;
     }
-    logIn({ email, password })
-      .then()
-      .catch(() => {
-        defaultModules.set(PNotifyMobile, {});
-        alert({
-          text: `Не вдалося авторизуватися`,
-        });
+    try {
+      await logIn({ email, password }).unwrap();
+      // .then()
+      // .catch(() => {
+      //   defaultModules.set(PNotifyMobile, {});
+      //   alert({
+      //     text: `Не вдалося авторизуватися`,
+      //   });
+      // });
+      // dispatch(logIn({ email, password }));
+      // dispatch(fetchCurrentUser());
+      setEmail('');
+      setPassword('');
+    } catch (error) {
+      defaultModules.set(PNotifyMobile, {});
+      alert({
+        text: `Не вдалося авторизуватися`,
       });
-    // dispatch(logIn({ email, password }));
-    // dispatch(fetchCurrentUser());
-    setEmail('');
-    setPassword('');
+    }
   };
 
   return (

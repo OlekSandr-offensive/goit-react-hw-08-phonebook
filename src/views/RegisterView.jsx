@@ -28,7 +28,7 @@ const LoginView = () => {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (name.length <= 0 || email.length <= 0 || password.length <= 0) {
       defaultModules.set(PNotifyMobile, {});
@@ -37,17 +37,21 @@ const LoginView = () => {
       });
       return;
     }
-    register({ name, email, password })
-      .then()
-      .catch(() => {
-        defaultModules.set(PNotifyMobile, {});
-        alert({
-          text: `Не вдалося зареєструватися`,
-        });
+    try {
+      await register({ name, email, password }).unwrap();
+      // .then()
+      // .catch(() => {
+
+      // });
+      setEmail('');
+      setPassword('');
+      setName('');
+    } catch (error) {
+      defaultModules.set(PNotifyMobile, {});
+      alert({
+        text: `Не вдалося зареєструватися`,
       });
-    setEmail('');
-    setPassword('');
-    setName('');
+    }
   };
 
   return (

@@ -31,7 +31,7 @@ const ContactsView = lazy(() =>
 
 export default function App() {
   // const dispatch = useDispatch();
-  const { isLoading } = useFetchCurrentUserQuery();
+  // const { isLoading } = useFetchCurrentUserQuery();
   const isFetchingCurrentUser = useSelector(
     authSelectors.getIsFetchingCurrentUser
   );
@@ -42,7 +42,7 @@ export default function App() {
 
   return (
     <>
-      {isLoading && <Watch />}
+      {/* {isLoading && <Watch />} */}
       {!isFetchingCurrentUser && (
         <div className="App">
           <Container>
