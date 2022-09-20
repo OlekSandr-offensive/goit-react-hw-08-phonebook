@@ -76,20 +76,20 @@ export const {
 //   },
 // };
 
-// export const register = createAsyncThunk('auth/register', async credentials => {
+// const register = createAsyncThunk('auth/register', async credentials => {
 //   try {
-//     const { data } = await axios.post('users/signup', credentials);
+//     const { data } = await axios.post('/users/signup', credentials);
 //     token.set(data.token);
 //     return data;
 //   } catch (error) {
 //     defaultModules.set(PNotifyMobile, {});
 //     alert({
-//       text: `Не вдалося зареєструватися`,
+//       text: 'Something went wrong! Please try again',
 //     });
 //   }
 // });
 
-// export const logIn = createAsyncThunk('auth/login', async credentials => {
+// const logIn = createAsyncThunk('auth/login', async credentials => {
 //   try {
 //     const { data } = await axios.post('/users/login', credentials);
 //     token.set(data.token);
@@ -97,24 +97,24 @@ export const {
 //   } catch (error) {
 //     defaultModules.set(PNotifyMobile, {});
 //     alert({
-//       text: `Не вдалося авторизуватися`,
+//       text: 'Wrong email or password!',
 //     });
 //   }
 // });
 
-// export const logOut = createAsyncThunk('auth/logout', async () => {
+// const logOut = createAsyncThunk('auth/logout', async () => {
 //   try {
 //     await axios.post('/users/logout');
 //     token.unset();
 //   } catch (error) {
 //     defaultModules.set(PNotifyMobile, {});
 //     alert({
-//       text: `Не вдалося вийти з облікового запису, текст помилки ${error}`,
+//       text: `Failed to sign out, error text ${error}`,
 //     });
 //   }
 // });
 
-// export const fetchCurrentUser = createAsyncThunk(
+// const fetchCurrentUser = createAsyncThunk(
 //   'auth/refresh',
 //   async (_, thunkAPI) => {
 //     const state = thunkAPI.getState();
@@ -131,8 +131,17 @@ export const {
 //     } catch (error) {
 //       defaultModules.set(PNotifyMobile, {});
 //       alert({
-//         text: `Не вдалося отримати дані користувача`,
+//         text: 'Failed to get user data',
 //       });
 //     }
 //   }
 // );
+
+// const operations = {
+//   register,
+//   logIn,
+//   logOut,
+//   fetchCurrentUser,
+// };
+
+// export default operations;

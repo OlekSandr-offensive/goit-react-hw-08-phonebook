@@ -1,27 +1,17 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   useFetchContactsQuery,
   useAddContactMutation,
-  fetchAllContacts,
 } from 'redux/contacts/contacts-slice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './ContactForm.css';
-import { useSelector, useDispatch } from 'react-redux';
 
 export default function ContactForm() {
-  // const dispatch = useDispatch();
   const { data: contacts } = useFetchContactsQuery();
-  const [AddContact] = useAddContactMutation();
+  const [AddContact, { isSuccess }] = useAddContactMutation();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  // const {
-  //   contacts: { contacts },
-  // } = useSelector(state => state);
-
-  // useEffect(() => {
-  //   dispatch(fetchAllContacts());
-  // }, [dispatch]);
 
   const handleInputChanged = event => {
     const { name, value } = event.currentTarget;
@@ -46,18 +36,17 @@ export default function ContactForm() {
 
     if (findContact) {
       toast.error(`${name} is already in contacts.`);
-      reset();
     } else {
       await AddContact({ name, number });
-      // dispatch(fetchAllContacts());
-      reset();
     }
   };
 
-  const reset = () => {
-    setName('');
-    setNumber('');
-  };
+  useEffect(() => {
+    if (isSuccess) {
+      setName('');
+      setNumber('');
+    }
+  }, [setName, setNumber, isSuccess]);
 
   return (
     <form className="ContactForm" onSubmit={handleSubmit}>
