@@ -1,6 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 import { useRegisterMutation } from '../redux/auth/auth-operation';
 import { alert, defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
@@ -9,7 +7,6 @@ import '@pnotify/mobile/dist/PNotifyMobile.css';
 import '../components/contactForm/ContactForm.css';
 
 const LoginView = () => {
-  // const dispatch = useDispatch();
   const [register] = useRegisterMutation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -39,10 +36,6 @@ const LoginView = () => {
     }
     try {
       await register({ name, email, password }).unwrap();
-      // .then()
-      // .catch(() => {
-
-      // });
       setEmail('');
       setPassword('');
       setName('');
@@ -66,9 +59,9 @@ const LoginView = () => {
               type="text"
               name="name"
               id="name"
+              placeholder="name"
               value={name}
               onChange={handleChange}
-              // required
             />
           </label>
           <label>
@@ -77,10 +70,10 @@ const LoginView = () => {
               type="email"
               name="email"
               id="email"
+              placeholder="email"
               value={email}
               onChange={handleChange}
               pattern="[^ @]*@[^ @]*"
-              // required
             />
           </label>
           <label>
@@ -89,11 +82,11 @@ const LoginView = () => {
               type="password"
               id="password"
               name="password"
+              placeholder="password"
               value={password}
               onChange={handleChange}
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-              // required
             />
           </label>
           <button type="submit">Зареєструватися</button>

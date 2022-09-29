@@ -1,11 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-import {
-  logIn,
-  fetchCurrentUser,
-  useLogInMutation,
-} from '../redux/auth/auth-operation';
+import { useLogInMutation } from '../redux/auth/auth-operation';
 import { alert, defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import * as PNotifyMobile from '@pnotify/mobile';
@@ -13,7 +8,6 @@ import '@pnotify/mobile/dist/PNotifyMobile.css';
 import '../components/contactForm/ContactForm.css';
 
 const LoginView = () => {
-  // const dispatch = useDispatch();
   const [logIn] = useLogInMutation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -40,15 +34,6 @@ const LoginView = () => {
     }
     try {
       await logIn({ email, password }).unwrap();
-      // .then()
-      // .catch(() => {
-      //   defaultModules.set(PNotifyMobile, {});
-      //   alert({
-      //     text: `Не вдалося авторизуватися`,
-      //   });
-      // });
-      // dispatch(logIn({ email, password }));
-      // dispatch(fetchCurrentUser());
       setEmail('');
       setPassword('');
     } catch (error) {
@@ -71,10 +56,10 @@ const LoginView = () => {
               type="email"
               id="email"
               name="email"
+              placeholder="email"
               value={email}
               onChange={handleChange}
               pattern="[^ @]*@[^ @]*"
-              // required
             />
           </label>
           <label>
@@ -83,11 +68,11 @@ const LoginView = () => {
               type="password"
               id="password"
               name="password"
+              placeholder="password"
               value={password}
               onChange={handleChange}
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-              // required
             ></input>
           </label>
           <button type="submit">Вхід</button>

@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/auth-selectors';
 import { useLogOutMutation } from '../../redux/auth/auth-operation';
 import defaultAvatar from '../userMenu/default-avatar.png';
@@ -9,7 +9,6 @@ import * as PNotifyMobile from '@pnotify/mobile';
 import '@pnotify/mobile/dist/PNotifyMobile.css';
 
 export default function UserMenu() {
-  // const dispatch = useDispatch();
   const [logOut] = useLogOutMutation();
   const name = useSelector(authSelectors.getUserName);
   const avatar = defaultAvatar;

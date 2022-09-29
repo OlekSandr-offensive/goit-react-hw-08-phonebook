@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { lazy, Suspense } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import { Watch } from 'react-loader-spinner';
@@ -8,10 +6,6 @@ import AppBar from './components/appBar/AppBar';
 import PrivateRoute from './components/appBar/PrivateRoute';
 import PublicRoute from './components/appBar/PublicRoute';
 import Container from './components/container/Container';
-import {
-  fetchCurrentUser,
-  useFetchCurrentUserQuery,
-} from './redux/auth/auth-operation';
 import { useSelector } from 'react-redux';
 import authSelectors from './redux/auth/auth-selectors';
 import './App.css';
@@ -30,19 +24,12 @@ const ContactsView = lazy(() =>
 );
 
 export default function App() {
-  // const dispatch = useDispatch();
-  // const { isLoading } = useFetchCurrentUserQuery();
   const isFetchingCurrentUser = useSelector(
     authSelectors.getIsFetchingCurrentUser
   );
 
-  // useEffect(() => {
-  //   dispatch(fetchCurrentUser());
-  // }, [dispatch]);
-
   return (
     <>
-      {/* {isLoading && <Watch />} */}
       {!isFetchingCurrentUser && (
         <div className="App">
           <Container>
