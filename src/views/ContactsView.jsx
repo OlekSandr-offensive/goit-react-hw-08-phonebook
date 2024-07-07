@@ -12,7 +12,7 @@ export default function ContactsView() {
       <ToastContainer autoClose={3000} />
       <h2>Contacts</h2>
       <Filter />
-      <ContactList />
+      {/* <ContactList /> */}
     </div>
   );
 }

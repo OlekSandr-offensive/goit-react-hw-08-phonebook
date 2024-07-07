@@ -11,7 +11,7 @@ export default function ContactForm() {
   const { data: contacts } = useFetchContactsQuery();
   const [AddContact] = useAddContactMutation();
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleInputChanged = event => {
     const { name, value } = event.currentTarget;
@@ -20,7 +20,7 @@ export default function ContactForm() {
         setName(value);
         break;
       case 'number':
-        setNumber(value);
+        setPhone(value);
         break;
       default:
         return;
@@ -38,14 +38,14 @@ export default function ContactForm() {
       toast.error(`${name} is already in contacts.`);
       reset();
     } else {
-      await AddContact({ name, number });
+      await AddContact({ name, phone });
       reset();
     }
   };
 
   const reset = () => {
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   return (
@@ -63,13 +63,13 @@ export default function ContactForm() {
         />
       </label>
       <label>
-        Number
+        Phone
         <input
           type="tel"
-          name="number"
+          name="phone"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
-          value={number}
+          value={phone}
           onChange={handleInputChanged}
           required
         />

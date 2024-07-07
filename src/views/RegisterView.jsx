@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useRegisterMutation } from '../redux/auth/auth-operation';
 import { alert, defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
@@ -7,6 +8,7 @@ import '@pnotify/mobile/dist/PNotifyMobile.css';
 import '../components/contactForm/ContactForm.css';
 
 const LoginView = () => {
+  const history = useHistory();
   const [register] = useRegisterMutation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -36,6 +38,7 @@ const LoginView = () => {
     }
     try {
       await register({ name, email, password }).unwrap();
+      history.push('/login');
       setEmail('');
       setPassword('');
       setName('');

@@ -10,7 +10,7 @@ import '@pnotify/mobile/dist/PNotifyMobile.css';
 
 export default function UserMenu() {
   const [logOut] = useLogOutMutation();
-  const name = useSelector(authSelectors.getUserName);
+  // const name = useSelector(authSelectors.getUserName);
   const avatar = defaultAvatar;
 
   const exitLogin = () => {
@@ -27,7 +27,7 @@ export default function UserMenu() {
   return (
     <div className="menu-container">
       <img src={avatar} alt="" width="32px" className="avatar-img" />
-      <span className="name-title"> Вітаємо {name}</span>
+      <span className="name-title"> Вітаємо {}</span>
       <button type="button" onClick={exitLogin}>
         Вихід
       </button>

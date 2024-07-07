@@ -33,7 +33,7 @@ const LoginView = () => {
       return;
     }
     try {
-      await logIn({ email, password }).unwrap();
+      await logIn({ email, password });
       setEmail('');
       setPassword('');
     } catch (error) {

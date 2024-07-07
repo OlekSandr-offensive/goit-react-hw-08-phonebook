@@ -6,6 +6,7 @@ import AppBar from './components/appBar/AppBar';
 import PrivateRoute from './components/appBar/PrivateRoute';
 import PublicRoute from './components/appBar/PublicRoute';
 import Container from './components/container/Container';
+import { useFetchCurrentUserQuery } from 'redux/auth/auth-operation';
 import { useSelector } from 'react-redux';
 import authSelectors from './redux/auth/auth-selectors';
 import './App.css';
@@ -19,9 +20,9 @@ const RegisterView = lazy(() =>
 const LoginView = lazy(() =>
   import('views/LoginView' /* webpackChunkName: "LoginViewLazy" */)
 );
-const ContactsView = lazy(() =>
-  import('views/ContactsView' /* webpackChunkName: "ContactsViewLazy" */)
-);
+// const ContactsView = lazy(() =>
+//   import('views/ContactsView' /* webpackChunkName: "ContactsViewLazy" */)
+// );
 
 export default function App() {
   const isFetchingCurrentUser = useSelector(
@@ -58,7 +59,7 @@ export default function App() {
                 </PublicRoute>
                 <Redirect to="/contacts" />
                 <PrivateRoute path="/contacts" redirectTo="/login">
-                  <ContactsView />
+                  {/* <ContactsView /> */}
                 </PrivateRoute>
               </Suspense>
             </Switch>

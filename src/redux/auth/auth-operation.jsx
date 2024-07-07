@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://connections-api.herokuapp.com/',
+    baseUrl: 'https://phonebook-hw88.onrender.com/api',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 
@@ -14,35 +14,35 @@ export const authApi = createApi({
     },
   }),
   tagTypes: ['Auth'],
-  endpoints: build => ({
-    fetchCurrentUser: build.query({
-      query: () => '/users/current',
+  endpoints: builder => ({
+    fetchCurrentUser: builder.query({
+      query: () => '/auth/current',
       providesTags: ['Auth'],
     }),
-    logIn: build.mutation({
+    logIn: builder.mutation({
       query(credentials) {
         return {
-          url: '/users/login',
+          url: '/auth/login',
           method: 'POST',
           body: credentials,
         };
       },
       invalidatesTags: ['Auth'],
     }),
-    register: build.mutation({
+    register: builder.mutation({
       query(credentials) {
         return {
-          url: '/users/signup',
+          url: '/auth/register',
           method: 'POST',
           body: credentials,
         };
       },
       invalidatesTags: ['Auth'],
     }),
-    logOut: build.mutation({
+    logOut: builder.mutation({
       query() {
         return {
-          url: '/users/logout',
+          url: '/auth/logout',
           method: 'POST',
         };
       },

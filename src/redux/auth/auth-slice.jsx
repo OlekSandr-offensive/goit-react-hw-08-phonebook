@@ -13,53 +13,45 @@ const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addMatcher(
-      authApi.endpoints.fetchCurrentUser.matchPending,
-      state => {
+    builder
+      .addMatcher(authApi.endpoints.fetchCurrentUser.matchPending, state => {
         state.isFetchingCurrentUser = true;
-      }
-    );
-    builder.addMatcher(
-      authApi.endpoints.register.matchFulfilled,
-      (state, { payload }) => {
-        state.user = payload.user;
-        state.token = payload.token;
-        state.isLoggedIn = true;
-      }
-    );
-    builder.addMatcher(
-      authApi.endpoints.logIn.matchFulfilled,
-      (state, { payload }) => {
-        state.token = payload.token;
-        state.user = payload.user;
-        state.isLoggedIn = true;
-      }
-    );
-    builder.addMatcher(authApi.endpoints.logOut.matchFulfilled, state => {
-      state.token = null;
-      state.user = null;
-      state.isLoggedIn = false;
-    });
-    builder.addMatcher(
-      authApi.endpoints.fetchCurrentUser.matchPending,
-      state => {
+      })
+      .addMatcher(
+        authApi.endpoints.register.matchFulfilled,
+        (state, { payload }) => {
+          state.user = payload.user;
+          state.token = payload.token;
+          state.isLoggedIn = true;
+        }
+      )
+      .addMatcher(
+        authApi.endpoints.logIn.matchFulfilled,
+        (state, { payload }) => {
+          state.user = payload.user;
+          state.token = payload.token;
+          state.isLoggedIn = true;
+        }
+      )
+      .addMatcher(authApi.endpoints.logOut.matchFulfilled, state => {
+        state.token = null;
+        state.user = null;
+        state.isLoggedIn = false;
+      })
+      .addMatcher(authApi.endpoints.fetchCurrentUser.matchFulfilled, state => {
         state.isFetchingCurrentUser = true;
-      }
-    );
-    builder.addMatcher(
-      authApi.endpoints.fetchCurrentUser.matchFulfilled,
-      (state, { payload }) => {
-        state.user = payload;
-        state.isLoggedIn = true;
+      })
+      .addMatcher(
+        authApi.endpoints.fetchCurrentUser.matchFulfilled,
+        (state, { payload }) => {
+          state.user = payload.user;
+          state.isLoggedIn = true;
+          state.isFetchingCurrentUser = false;
+        }
+      )
+      .addMatcher(authApi.endpoints.fetchCurrentUser.matchRejected, state => {
         state.isFetchingCurrentUser = false;
-      }
-    );
-    builder.addMatcher(
-      authApi.endpoints.fetchCurrentUser.matchRejected,
-      state => {
-        state.isFetchingCurrentUser = false;
-      }
-    );
+      });
   },
 });
 
