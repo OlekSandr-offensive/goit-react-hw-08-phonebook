@@ -4,10 +4,10 @@ import './AuthNav.css';
 const AuthNav = () => (
   <div className="auth-link">
     <NavLink to="/register" className="link">
-      Регістрація
+      Sing Up
     </NavLink>
     <NavLink to="/login" className="link">
-      Логін
+      Sing In
     </NavLink>
   </div>
 );

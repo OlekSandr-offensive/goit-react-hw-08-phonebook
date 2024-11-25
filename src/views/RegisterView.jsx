@@ -7,12 +7,13 @@ import * as PNotifyMobile from '@pnotify/mobile';
 import '@pnotify/mobile/dist/PNotifyMobile.css';
 import '../components/contactForm/ContactForm.css';
 
-const LoginView = () => {
+const RegisterView = () => {
   const history = useHistory();
   const [register] = useRegisterMutation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [repeat_password, setRepeat_password] = useState('');
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -22,6 +23,8 @@ const LoginView = () => {
         return setEmail(value);
       case 'password':
         return setPassword(value);
+      case 'repeat_password':
+        return setRepeat_password(value);
       default:
         return;
     }
@@ -29,35 +32,41 @@ const LoginView = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    if (name.length <= 0 || email.length <= 0 || password.length <= 0) {
+    if (
+      name.length <= 0 ||
+      email.length <= 0 ||
+      password.length <= 0 ||
+      repeat_password.length <= 0
+    ) {
       defaultModules.set(PNotifyMobile, {});
       alert({
-        text: `Заповніть поля`,
+        text: `Fill in the fields`,
       });
       return;
     }
     try {
-      await register({ name, email, password }).unwrap();
+      await register({ name, email, password, repeat_password }).unwrap();
       history.push('/login');
       setEmail('');
       setPassword('');
       setName('');
+      setRepeat_password('');
     } catch (error) {
       defaultModules.set(PNotifyMobile, {});
       alert({
-        text: `Не вдалося зареєструватися`,
+        text: `${error.data.message}`,
       });
     }
   };
 
   return (
     <div>
-      <h1>Сторінка регістрація</h1>
+      <h1>Registration page</h1>
 
       <div className="ContactForm">
         <form onSubmit={handleSubmit} className="form-input" autoComplete="off">
           <label>
-            Ім'я
+            Name
             <input
               type="text"
               name="name"
@@ -65,10 +74,13 @@ const LoginView = () => {
               placeholder="name"
               value={name}
               onChange={handleChange}
+              required
+              minLength={3}
+              maxLength={50}
             />
           </label>
           <label>
-            Пошта
+            Mail
             <input
               type="email"
               name="email"
@@ -76,11 +88,13 @@ const LoginView = () => {
               placeholder="email"
               value={email}
               onChange={handleChange}
-              pattern="[^ @]*@[^ @]*"
+              required
+              minLength={6}
+              maxLength={40}
             />
           </label>
           <label>
-            Пароль
+            Password
             <input
               type="password"
               id="password"
@@ -88,15 +102,32 @@ const LoginView = () => {
               placeholder="password"
               value={password}
               onChange={handleChange}
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              required
+              minLength={6}
+              maxLength={30}
             />
           </label>
-          <button type="submit">Зареєструватися</button>
+          <label>
+            Repeat password
+            <input
+              type="password"
+              id="repeat_password"
+              name="repeat_password"
+              placeholder="repeat password"
+              value={repeat_password}
+              onChange={handleChange}
+              required
+              minLength={6}
+              maxLength={30}
+            />
+          </label>
+          <button type="submit" className="formButton">
+            Sign Up
+          </button>
         </form>
       </div>
     </div>
   );
 };
 
-export default LoginView;
+export default RegisterView;

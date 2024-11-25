@@ -1,23 +1,134 @@
 .menu-container {
   display: flex;
   align-items: center;
-  button {
-    border-radius: 5px;
-    cursor: pointer;
-    background: white;
-    border-color: #ececec;
-    width: 60px;
-    &:hover {
-      background: #4e8cf0;
-    }
+}
+
+.menuButton {
+  border-radius: 5px;
+  cursor: pointer;
+  background: white;
+  border-color: #ececec;
+  width: 60px;
+  &:hover {
+    background: #4e8cf0;
   }
 }
 
+.avatar {
+  position: relative;
+  margin-left: 5px;
+}
+
 .avatar-img {
-  margin-right: 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease; /* Анімація переходу */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Тінь для об'єму */
+  transition: filter 0.3s ease;
+  &:active {
+    transform: scale(0.95); /* Зменшення кнопки при натисканні */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Зменшення тіні */
+  }
+  &:hover {
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
+  }
 }
 
 .name-title {
   font-weight: 700;
   margin-right: 12px;
+}
+
+.btn {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin: 0;
+}
+
+.modalForm {
+  position: absolute;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.hidden {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  line-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  width: max-content;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dialog .arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid white; /* Колір стрілки та хмарки */
+  top: -10px; /* Розташування нижче хмарки */
+  left: 20px; /* Позиція по горизонталі, можна змінити залежно від персонажа */
+}
+
+.dialogBtb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  color: inherit;
+  border: none;
+  border-radius: 5px;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  margin: 0;
+  &:hover {
+    background: #e2e2e2;
+  }
+  &:active {
+    background: #d8dadf;
+  }
+}
+
+.dialogSvg {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  fill: #46484b;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1200;
+}
+
+.profileImg {
+  width: 300px;
+  height: 300px;
 }

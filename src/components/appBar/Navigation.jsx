@@ -8,12 +8,17 @@ const Navigation = () => {
 
   return (
     <nav>
-      <NavLink to="/" className="link" activeclassname="activeLink">
-        Головна
+      <NavLink to="/" className="link" exact activeClassName="activeLink">
+        Main
       </NavLink>
       {isLoggedIn && (
-        <NavLink to="/contacts" className="link" activeclassname="activeLink">
-          Контакти
+        <NavLink
+          to="/contacts"
+          className="link"
+          exact
+          activeClassName="activeLink"
+        >
+          Contacts
         </NavLink>
       )}
     </nav>

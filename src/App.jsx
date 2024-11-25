@@ -20,9 +20,9 @@ const RegisterView = lazy(() =>
 const LoginView = lazy(() =>
   import('views/LoginView' /* webpackChunkName: "LoginViewLazy" */)
 );
-// const ContactsView = lazy(() =>
-//   import('views/ContactsView' /* webpackChunkName: "ContactsViewLazy" */)
-// );
+const ContactsView = lazy(() =>
+  import('views/ContactsView' /* webpackChunkName: "ContactsViewLazy" */)
+);
 
 export default function App() {
   const isFetchingCurrentUser = useSelector(
@@ -59,7 +59,7 @@ export default function App() {
                 </PublicRoute>
                 <Redirect to="/contacts" />
                 <PrivateRoute path="/contacts" redirectTo="/login">
-                  {/* <ContactsView /> */}
+                  <ContactsView />
                 </PrivateRoute>
               </Suspense>
             </Switch>

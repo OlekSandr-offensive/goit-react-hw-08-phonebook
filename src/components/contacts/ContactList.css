@@ -24,14 +24,13 @@ span {
   margin-left: 20px;
 }
 
-button {
+.deleteButton {
   margin-left: 30px;
   border-radius: 5px;
   cursor: pointer;
   background: white;
   border-color: #ececec;
-}
-
-button:hover {
-  background: #4e8cf0;
+  &:hover {
+    background: #4e8cf0;
+  }
 }

@@ -11,7 +11,13 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    unsubscribe(state) {
+      state.token = null;
+      state.user = null;
+      state.isLoggedIn = false;
+    },
+  },
   extraReducers: builder => {
     builder
       .addMatcher(authApi.endpoints.fetchCurrentUser.matchPending, state => {
@@ -20,31 +26,28 @@ const authSlice = createSlice({
       .addMatcher(
         authApi.endpoints.register.matchFulfilled,
         (state, { payload }) => {
-          state.user = payload.user;
-          state.token = payload.token;
+          state.user = payload.data.user;
+          state.token = payload.data.token;
           state.isLoggedIn = true;
         }
       )
       .addMatcher(
         authApi.endpoints.logIn.matchFulfilled,
         (state, { payload }) => {
-          state.user = payload.user;
-          state.token = payload.token;
+          state.user = payload.data.user;
+          state.token = payload.data.token;
           state.isLoggedIn = true;
         }
       )
       .addMatcher(authApi.endpoints.logOut.matchFulfilled, state => {
         state.token = null;
-        state.user = null;
+        state.user = { name: null, email: null };
         state.isLoggedIn = false;
-      })
-      .addMatcher(authApi.endpoints.fetchCurrentUser.matchFulfilled, state => {
-        state.isFetchingCurrentUser = true;
       })
       .addMatcher(
         authApi.endpoints.fetchCurrentUser.matchFulfilled,
         (state, { payload }) => {
-          state.user = payload.user;
+          state.user = payload.data.user;
           state.isLoggedIn = true;
           state.isFetchingCurrentUser = false;
         }
@@ -56,3 +59,6 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+
+// Action
+export const { unsubscribe } = authSlice.actions;

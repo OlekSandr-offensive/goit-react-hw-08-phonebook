@@ -32,7 +32,7 @@ export const authApi = createApi({
     register: builder.mutation({
       query(credentials) {
         return {
-          url: '/auth/register',
+          url: '/auth/signup',
           method: 'POST',
           body: credentials,
         };
@@ -48,6 +48,19 @@ export const authApi = createApi({
       },
       invalidatesTags: ['Auth'],
     }),
+    updateAvatar: builder.mutation({
+      query: file => {
+        const formData = new FormData();
+        formData.append('avatar', file);
+
+        return {
+          url: '/auth/avatars',
+          method: 'PATCH',
+          body: formData,
+        };
+      },
+      invalidatesTags: ['Auth'],
+    }),
   }),
 });
 
@@ -56,4 +69,5 @@ export const {
   useLogInMutation,
   useRegisterMutation,
   useLogOutMutation,
+  useUpdateAvatarMutation,
 } = authApi;

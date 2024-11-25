@@ -2,7 +2,7 @@ import React from 'react';
 
 const styles = {
   container: {
-    minHeight: 'calc(100vh - 50px)',
+    minHeight: 'calc(100vh - 40px)',
     display: 'flex',
     alingItems: 'center',
     justifyContent: 'center',
@@ -18,8 +18,8 @@ const HomeView = () => {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>
-        Головна сторінка нашого сервісу{' '}
-        <span role="img" aria-label="Картинка вітання">
+        The main page of our service{' '}
+        <span role="img" aria-label="Greeting picture">
           😎
         </span>
       </h1>

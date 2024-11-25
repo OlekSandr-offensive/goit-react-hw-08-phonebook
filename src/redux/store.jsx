@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { contactsApi } from './contacts/contacts-slice';
+import { contactsApi } from './contacts/contacts-operation';
 import { authApi } from './auth/auth-operation';
 import authSlice from './auth/auth-slice';
 import filterSlice from './contacts/filters-reducer';
@@ -21,20 +21,11 @@ const authPersistConfig = {
   whitelist: ['token', 'isLoggedIn', 'user'],
 };
 
-// const middleware = getDefaultMiddleware => [
-//   ...getDefaultMiddleware({
-//     serializableCheck: {
-//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//     },
-//   }),
-//   // contactsApi.middleware,
-// ];
-
 const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
     auth: persistReducer(authPersistConfig, authSlice),
-    // [contactsApi.reducerPath]: contactsApi.reducer,
+    [contactsApi.reducerPath]: contactsApi.reducer,
     filter: filterSlice,
   },
   middleware: getDefaultMiddleware => [
@@ -44,7 +35,7 @@ const store = configureStore({
       },
     }),
     authApi.middleware,
-    // contactsApi.middleware,
+    contactsApi.middleware,
   ],
   devTools: process.env.NODE_ENV === 'development',
 });

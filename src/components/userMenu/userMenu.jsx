@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/auth-selectors';
 import { useLogOutMutation } from '../../redux/auth/auth-operation';
-import defaultAvatar from '../userMenu/default-avatar.png';
+import ImageButton from './ImageButton';
 import '../../styles/UserMenu.css';
 import { alert, defaultModules } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
@@ -10,8 +10,7 @@ import '@pnotify/mobile/dist/PNotifyMobile.css';
 
 export default function UserMenu() {
   const [logOut] = useLogOutMutation();
-  // const name = useSelector(authSelectors.getUserName);
-  const avatar = defaultAvatar;
+  const name = useSelector(authSelectors.getUserName);
 
   const exitLogin = () => {
     logOut()
@@ -19,17 +18,17 @@ export default function UserMenu() {
       .catch(error => {
         defaultModules.set(PNotifyMobile, {});
         alert({
-          text: `Не вдалося вийти з облікового запису, текст помилки ${error}`,
+          text: `Failed to sign out, error text ${error}`,
         });
       });
   };
 
   return (
     <div className="menu-container">
-      <img src={avatar} alt="" width="32px" className="avatar-img" />
-      <span className="name-title"> Вітаємо {}</span>
-      <button type="button" onClick={exitLogin}>
-        Вихід
+      <ImageButton />
+      <span className="name-title"> Congratulations, {name}!</span>
+      <button type="button" onClick={exitLogin} className="menuButton">
+        Exit
       </button>
     </div>
   );

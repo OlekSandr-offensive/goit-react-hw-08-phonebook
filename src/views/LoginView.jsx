@@ -28,30 +28,30 @@ const LoginView = () => {
     if (email.length <= 0 || password.length <= 0) {
       defaultModules.set(PNotifyMobile, {});
       alert({
-        text: `Заповніть поля`,
+        text: `Fill in the fields`,
       });
       return;
     }
     try {
-      await logIn({ email, password });
+      await logIn({ email, password }).unwrap();
       setEmail('');
       setPassword('');
     } catch (error) {
       defaultModules.set(PNotifyMobile, {});
       alert({
-        text: `Не вдалося авторизуватися`,
+        text: `${error.data.message}`,
       });
     }
   };
 
   return (
     <div>
-      <h1>Сторінка логіна</h1>
+      <h1>Login page</h1>
 
       <div className="ContactForm">
         <form onSubmit={handleSubmit} className="form-input" autoComplete="off">
           <label>
-            Пошта
+            Mail
             <input
               type="email"
               id="email"
@@ -59,11 +59,13 @@ const LoginView = () => {
               placeholder="email"
               value={email}
               onChange={handleChange}
-              pattern="[^ @]*@[^ @]*"
+              required
+              minLength={3}
+              maxLength={50}
             />
           </label>
           <label>
-            Пароль
+            Password
             <input
               type="password"
               id="password"
@@ -71,11 +73,14 @@ const LoginView = () => {
               placeholder="password"
               value={password}
               onChange={handleChange}
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              required
+              minLength={6}
+              maxLength={40}
             ></input>
           </label>
-          <button type="submit">Вхід</button>
+          <button type="submit" className="formButton">
+            Enter
+          </button>
         </form>
       </div>
     </div>
