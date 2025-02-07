@@ -1,28 +1,27 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-08-phonebook/static/css/main.a35aff54.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.4f668652.js",
-    "HomeViewLazy.js": "/goit-react-hw-08-phonebook/static/js/HomeViewLazy.a1873a2e.chunk.js",
-    "RegisterViewLazy.css": "/goit-react-hw-08-phonebook/static/css/RegisterViewLazy.3392f302.chunk.css",
-    "RegisterViewLazy.js": "/goit-react-hw-08-phonebook/static/js/RegisterViewLazy.59235f35.chunk.js",
-    "LoginViewLazy.css": "/goit-react-hw-08-phonebook/static/css/LoginViewLazy.3392f302.chunk.css",
-    "LoginViewLazy.js": "/goit-react-hw-08-phonebook/static/js/LoginViewLazy.3a99b79d.chunk.js",
-    "ContactsViewLazy.css": "/goit-react-hw-08-phonebook/static/css/ContactsViewLazy.c7474eaa.chunk.css",
-    "ContactsViewLazy.js": "/goit-react-hw-08-phonebook/static/js/ContactsViewLazy.8d2e6cba.chunk.js",
-    "static/media/default-avatar.png": "/goit-react-hw-08-phonebook/static/media/default-avatar.10691648d79aa2f92514.png",
+    "main.css": "/goit-react-hw-08-phonebook/static/css/main.1bf5d0c5.css",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.8e5596ad.js",
+    "HomeViewLazy.js": "/goit-react-hw-08-phonebook/static/js/HomeViewLazy.dc72c8ab.chunk.js",
+    "RegisterViewLazy.css": "/goit-react-hw-08-phonebook/static/css/RegisterViewLazy.fed920d1.chunk.css",
+    "RegisterViewLazy.js": "/goit-react-hw-08-phonebook/static/js/RegisterViewLazy.bf3b5087.chunk.js",
+    "LoginViewLazy.css": "/goit-react-hw-08-phonebook/static/css/LoginViewLazy.fed920d1.chunk.css",
+    "LoginViewLazy.js": "/goit-react-hw-08-phonebook/static/js/LoginViewLazy.47fa43d9.chunk.js",
+    "ContactsViewLazy.css": "/goit-react-hw-08-phonebook/static/css/ContactsViewLazy.3fdcb203.chunk.css",
+    "ContactsViewLazy.js": "/goit-react-hw-08-phonebook/static/js/ContactsViewLazy.22fda6bd.chunk.js",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
-    "main.a35aff54.css.map": "/goit-react-hw-08-phonebook/static/css/main.a35aff54.css.map",
-    "main.4f668652.js.map": "/goit-react-hw-08-phonebook/static/js/main.4f668652.js.map",
-    "HomeViewLazy.a1873a2e.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/HomeViewLazy.a1873a2e.chunk.js.map",
-    "RegisterViewLazy.3392f302.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/RegisterViewLazy.3392f302.chunk.css.map",
-    "RegisterViewLazy.59235f35.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/RegisterViewLazy.59235f35.chunk.js.map",
-    "LoginViewLazy.3392f302.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/LoginViewLazy.3392f302.chunk.css.map",
-    "LoginViewLazy.3a99b79d.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/LoginViewLazy.3a99b79d.chunk.js.map",
-    "ContactsViewLazy.c7474eaa.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/ContactsViewLazy.c7474eaa.chunk.css.map",
-    "ContactsViewLazy.8d2e6cba.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/ContactsViewLazy.8d2e6cba.chunk.js.map"
+    "main.1bf5d0c5.css.map": "/goit-react-hw-08-phonebook/static/css/main.1bf5d0c5.css.map",
+    "main.8e5596ad.js.map": "/goit-react-hw-08-phonebook/static/js/main.8e5596ad.js.map",
+    "HomeViewLazy.dc72c8ab.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/HomeViewLazy.dc72c8ab.chunk.js.map",
+    "RegisterViewLazy.fed920d1.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/RegisterViewLazy.fed920d1.chunk.css.map",
+    "RegisterViewLazy.bf3b5087.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/RegisterViewLazy.bf3b5087.chunk.js.map",
+    "LoginViewLazy.fed920d1.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/LoginViewLazy.fed920d1.chunk.css.map",
+    "LoginViewLazy.47fa43d9.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/LoginViewLazy.47fa43d9.chunk.js.map",
+    "ContactsViewLazy.3fdcb203.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/ContactsViewLazy.3fdcb203.chunk.css.map",
+    "ContactsViewLazy.22fda6bd.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/ContactsViewLazy.22fda6bd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a35aff54.css",
-    "static/js/main.4f668652.js"
+    "static/css/main.1bf5d0c5.css",
+    "static/js/main.8e5596ad.js"
   ]
 }
