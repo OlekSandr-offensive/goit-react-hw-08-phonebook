@@ -22,6 +22,7 @@ export const Dialog = forwardRef(
 
     const handleUpload = async e => {
       e.preventDefault();
+      setIsShowDialog(false);
       const file = e.target.files[0];
 
       if (!file) {

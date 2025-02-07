@@ -28,7 +28,7 @@ const authSlice = createSlice({
         (state, { payload }) => {
           state.user = payload.data.user;
           state.token = payload.data.token;
-          state.isLoggedIn = true;
+          state.isLoggedIn = false;
         }
       )
       .addMatcher(

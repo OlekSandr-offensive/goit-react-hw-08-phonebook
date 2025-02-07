@@ -1,9 +1,10 @@
 import { useDeleteContactsMutation } from '../../redux/contacts/contacts-operation';
-import { Watch } from 'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 
 const ContactListItem = ({ _id, name, phone }) => {
   const [deleteContacts, { isLoading: isDeleting }] =
     useDeleteContactsMutation();
+
   return (
     <>
       <li>
@@ -16,8 +17,7 @@ const ContactListItem = ({ _id, name, phone }) => {
           disabled={isDeleting}
           className="deleteButton"
         >
-          {isDeleting && <Watch height="10" width="10" />}
-          Delete
+          {isDeleting ? <ThreeDots height="20" width="20" /> : 'Delete'}
         </button>
       </li>
     </>

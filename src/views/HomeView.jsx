@@ -2,7 +2,7 @@ import React from 'react';
 
 const styles = {
   container: {
-    minHeight: 'calc(100vh - 40px)',
+    minHeight: 'calc(100vh /2)',
     display: 'flex',
     alingItems: 'center',
     justifyContent: 'center',

@@ -1,5 +1,6 @@
 import './ContactList.css';
 import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFetchContactsQuery } from '../../redux/contacts/contacts-operation';
 import { unsubscribe } from '../../redux/auth/auth-slice';
@@ -11,6 +12,7 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import PropTypes from 'prop-types';
 
 const ContactList = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector(authSelectors.getUserName);
   const filters = useSelector(getFilters).toLowerCase().trim();
@@ -25,8 +27,9 @@ const ContactList = () => {
   useEffect(() => {
     if (error?.status === 401) {
       dispatch(unsubscribe());
+      history.push('/login');
     }
-  });
+  }, [error, dispatch, history]);
 
   return (
     <>

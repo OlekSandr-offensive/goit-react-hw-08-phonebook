@@ -5,8 +5,7 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import AppBar from './components/appBar/AppBar';
 import PrivateRoute from './components/appBar/PrivateRoute';
 import PublicRoute from './components/appBar/PublicRoute';
-import Container from './components/container/Container';
-import { useFetchCurrentUserQuery } from 'redux/auth/auth-operation';
+import Container from './components/utils/Container/Container';
 import { useSelector } from 'react-redux';
 import authSelectors from './redux/auth/auth-selectors';
 import './App.css';
@@ -32,7 +31,7 @@ export default function App() {
   return (
     <>
       {!isFetchingCurrentUser && (
-        <div className="App">
+        <>
           <Container>
             <AppBar />
             <Switch>
@@ -64,7 +63,7 @@ export default function App() {
               </Suspense>
             </Switch>
           </Container>
-        </div>
+        </>
       )}
     </>
   );

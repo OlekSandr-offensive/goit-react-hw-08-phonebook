@@ -31,11 +31,14 @@ export default function ContactForm() {
     event.preventDefault();
 
     const findContact = contacts.find(
-      contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase()
+      contact =>
+        contact.name.toLocaleLowerCase() === name.toLocaleLowerCase() &&
+        contact.phone === phone
     );
 
     if (findContact) {
       toast.error(`${name} is already in contacts.`);
+      toast.error(`${phone} is already in contacts.`);
       reset();
     } else {
       await AddContact({ name, phone });

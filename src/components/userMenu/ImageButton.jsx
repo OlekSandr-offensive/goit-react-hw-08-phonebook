@@ -3,14 +3,14 @@ import authSelectors from '../../redux/auth/auth-selectors';
 import '../../styles/UserMenu.css';
 import { useRef, useState } from 'react';
 import { Dialog } from './Dialog';
+import { Watch } from 'react-loader-spinner';
 import { useClickOutside } from './useClickOutside';
 import Modal from './Modal';
-import UploadForm from './UploadForm';
 import { useFetchCurrentUserQuery } from '../../redux/auth/auth-operation';
 
 export default function ImageButton() {
   const user = useSelector(authSelectors.getCurrentUser);
-  const { data, isLoading } = useFetchCurrentUserQuery(user);
+  const { isLoading } = useFetchCurrentUserQuery(user);
   const [isShowDialog, setIsShowDialog] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenForm, setIsOpenForm] = useState(false);
@@ -40,7 +40,7 @@ export default function ImageButton() {
           aria-label="User profile"
         >
           {isLoading ? (
-            <p>Завантаження...</p>
+            <Watch height="20" width="20" color="teal" ariaLabel="loading" />
           ) : (
             <img
               src={profile_img}
@@ -53,7 +53,6 @@ export default function ImageButton() {
         {isShowDialog && <Dialog ref={domNode} {...childProps} />}
       </div>
       {isOpenModal && <Modal {...childProps} />}
-      {isOpenForm && <UploadForm {...childProps} />}
     </>
   );
 }
